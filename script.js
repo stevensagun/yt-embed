@@ -1,19 +1,8 @@
 // Full URL object
 const url = new URL(window.location.href);
 
-// -------------------
-// 1️⃣ Get path segment
-// -------------------
-const segments = url.pathname.split("/").filter(Boolean);
-
-// For project page:
-// ["yt-embed", "abc"]
-
-const videoId = segments[1]; // ignore repo name
-
-// -------------------
-// 2️⃣ Get query params
-// -------------------
+// Get query params
+const videoId = url.searchParams.get("videoId") ?? url.searchParams.get("vidoId");
 const start = url.searchParams.get("start");
 const end = url.searchParams.get("end");
 
